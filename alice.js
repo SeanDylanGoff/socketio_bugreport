@@ -12,8 +12,13 @@ setInterval(()=>{
     socket.emit('reflect', 'alice\'s secret #'+i++);
 }, 1000)
 
+let timer;
 setTimeout(()=>{
-    setInterval(()=>{
+    timer = setInterval(()=>{
         socket.emit('reflect', 'throw');
     }, 100)
 }, 10000)
+
+setTimeout(()=>{
+    clearInterval(timer);
+}, 20000)
